@@ -3,7 +3,7 @@ name: First Workflow
 jobs:
   build:
     runs-on: ubuntu-latest
-    step1:
+    steps:
       - name: Checkout repository
         uses: actions/checkout@v3
       - name: Set up Node.js
@@ -15,7 +15,7 @@ jobs:
   deploy:
     needs: build
     runs-on: ubuntu-latest
-    step2:
+    steps:
       - name: Get code
         uses: actions/checkout@v3
       - name: Set up Node.js
@@ -28,3 +28,5 @@ jobs:
         run: npm test
       - name: Build project
         run: npm run build
+      - name: Deploy project
+        run: echo "Deploying project..."
